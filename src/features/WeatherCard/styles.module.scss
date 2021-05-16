@@ -1,0 +1,70 @@
+.card {
+    min-height: 524 / 16 * 1rem;
+    width: 100%;
+    border-radius: 8px;
+    background: #FFFFFF;
+    padding: 50 / 16 * 1rem 58 / 16 * 1rem;
+    box-shadow: 0px 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
+
+    @media (max-width: 1280px) {
+        width: 660 / 16 * 1rem;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 740px) {
+        width: 80%;
+    }
+
+    @media (max-width: 540px) {
+        width: 95%;
+    }
+
+    @media (max-width: 442px) {
+        width: 98%;
+        padding: 2rem 1.5rem;
+    }
+
+    &__title {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2rem;
+        line-height: 1;
+        color: #2C2D76;
+        margin-bottom: 2rem;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+
+        @media (max-width: 740px) {
+            flex-flow: column;
+            height: 112 / 16 * 1rem;
+        }
+    }
+
+    &__city {
+        min-width: 252px;
+        height: 48px;
+        left: 99px;
+        top: 451px;
+        background: rgba(128, 131, 164, 0.06);
+        border: 2px solid rgba(128, 131, 164, 0.2);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+
+    &__date {
+        min-width: 252px;
+        height: 48px;
+        left: 1085px;
+        top: 451px;
+        background: rgba(128, 131, 164, 0.06);
+        border: 2px solid rgba(128, 131, 164, 0.2);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+}
+

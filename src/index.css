@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./assests/Fonts/Ubuntu-Bold.ttf') format('ttf')
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assests/Fonts/Ubuntu-Regular.ttf') format('ttf')
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 0.5em + lvw;
+}
+
+body {
+  font-family: 'Ubuntu';
+  font-weight: normal;
+}

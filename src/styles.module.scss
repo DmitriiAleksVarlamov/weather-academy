@@ -1,0 +1,12 @@
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+    padding-bottom: 233 / 16 * 1rem;
+    background: 
+    url('./assests/Background/Bg-buttom.png'),
+    url('./assests/Background/Bg-up.png'),
+    #373AF5;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+    background-size: 70%, 70%;
+}
