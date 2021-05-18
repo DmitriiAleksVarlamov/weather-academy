@@ -1,26 +1,31 @@
 .card {
     min-height: 524 / 16 * 1rem;
-    width: 100%;
+    width: 660 / 16 * 1rem;
     border-radius: 8px;
     background: #FFFFFF;
     padding: 50 / 16 * 1rem 58 / 16 * 1rem;
     box-shadow: 0px 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
 
+    @media (max-width: 1440px) {
+        width: 600 / 16 * 1rem;
+    }
+
     @media (max-width: 1280px) {
         width: 660 / 16 * 1rem;
-        margin: 0 auto;
     }
 
     @media (max-width: 740px) {
-        width: 80%;
+        width: 100%;
     }
 
     @media (max-width: 540px) {
+        margin: 0 auto;
         width: 95%;
+        padding: 2.5rem 2rem;
     }
 
     @media (max-width: 442px) {
-        width: 98%;
+        width: 100%;
         padding: 2rem 1.5rem;
     }
 
@@ -46,7 +51,7 @@
     }
 
     &__city {
-        min-width: 252px;
+        min-width: 47%;
         height: 48px;
         left: 99px;
         top: 451px;
@@ -54,10 +59,15 @@
         border: 2px solid rgba(128, 131, 164, 0.2);
         box-sizing: border-box;
         border-radius: 8px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1rem;
+        color: #8083A4;
     }
 
     &__date {
-        min-width: 252px;
+        min-width: 47%;
         height: 48px;
         left: 1085px;
         top: 451px;
@@ -65,6 +75,14 @@
         border: 2px solid rgba(128, 131, 164, 0.2);
         box-sizing: border-box;
         border-radius: 8px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #8083A4;
     }
 }
+
+
 

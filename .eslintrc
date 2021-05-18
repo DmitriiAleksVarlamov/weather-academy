@@ -2,7 +2,10 @@
     "extends": "standard",
     "plugins": ["react", "react-hooks"],
     "rules": {
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "array-callback-return": "off",
+        "no-unused-vars": "off",
+        "no-return-assign": "off"
     },
     "env": {
         "browser": true,

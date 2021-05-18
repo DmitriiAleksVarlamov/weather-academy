@@ -1,13 +1,10 @@
-$screen-size: 1280px;
-
 .content {
     max-width: 1400 / 16 * 1rem;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 34 / 16 * 1rem;
 
-    @media (max-width: $screen-size) {
+    @media (max-width: 1280px) {
         grid-template-columns: none;
         grid-template-rows: auto auto;
     }
@@ -16,5 +13,6 @@ $screen-size: 1280px;
         grid-template-columns: none;
         grid-template-rows: auto auto;
         padding: 0 10 / 16 * 1rem;
+        grid-gap: 10 / 16 * 1rem;
     }
 }

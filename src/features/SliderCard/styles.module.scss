@@ -1,0 +1,33 @@
+.card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 20 / 16 * 1rem;
+
+    &__img {
+        height: 120 / 16 * 1rem;
+        width: 120 / 16 * 1rem;
+        align-self: center;
+    }
+
+    &__date {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #FFFFFF;
+    }
+
+    &__temperature {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2rem;
+        line-height: 1;
+        color: #FFFFFF;
+        align-self: flex-end;
+    }
+}

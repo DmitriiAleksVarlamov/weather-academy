@@ -6,10 +6,10 @@ interface Props { }
 
 const AppContent: FC<Props> = () => {
   return (
-        <main className={classes.content}>
-            <WeatherCard />
-            <WeatherCard />
-        </main>
+    <main className={classes.content}>
+      <WeatherCard title="7 Days Forecast" />
+      <WeatherCard title="Forecast for a Date in the Past" />
+    </main>
   )
 }
 
