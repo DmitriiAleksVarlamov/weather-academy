@@ -1,64 +1,116 @@
-%text-style {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 102 / 16 * 1rem;
-    line-height: 1;
-    color: #FFFFFF;
-}
-
-$medium-size: 900px;
-$small-size: 640px;
-$mini-size: 442px;
-
 .header {
     display: flex;
     flex-flow: column;
     align-items: center;
-    width: 680 / 16 * 1rem;
-    margin: 0 auto;
-    padding-top: 65 / 16 * 1rem;
-    padding-bottom: 50 / 16 * 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    width: 210 / 16 * 1rem;
 
-    @media (max-width: $medium-size) {
-        width: 540 / 16 * 1rem;
-        padding-top: 50 / 16 * 1rem;
-        padding-bottom: 40 / 16 * 1rem;
+    @media (min-width: 442px) and (max-width: 619px) {
+        width: 280 / 16 * 1rem;
     }
 
-    @media (max-width: $small-size) {
-        width: 370 / 16 * 1rem;
-        padding-top: 28 / 16 * 1rem;
-        padding-bottom: 1rem;
+    @media (min-width: 620px) and (max-width: 819px) {
+        width: 360 / 16 * 1rem;
     }
 
-    @media (max-width: $mini-size) {
-        width: 220 / 16 * 1rem;
-        padding-top: 20 / 16 * 1rem;
-        padding-bottom: 1rem;
+    @media (min-width: 820px) {
+        width: 475 / 16 * 1rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
+
+    @media (min-width: 1280px) {
+        width: 700 / 16 * 1rem;
+   }
 
     &__text {
-        @extend %text-style;  
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2rem;
+        line-height: 1;
+        color: #FFFFFF;
 
         &:first-child {
             align-self: flex-start;
         }
-
+    
         &:last-child {
             align-self: flex-end;
         }
 
-        @media (max-width: $medium-size) {
-            font-size: 80 / 16 * 1rem;
-        }
+        @media (min-width: 442px) and (max-width: 619px) {
+           font-size: 42 / 16 * 1rem;
+       }
 
-        @media (max-width: $small-size) {
-            font-size: 55 / 16 * 1rem;
-        }
+        @media (min-width: 620px) and (max-width: 819px) {
+            font-size: 54 / 16 * 1rem;
+       }
 
-        @media (max-width: $mini-size) {
-            font-size: 32 / 16 * 1rem;
-        }
+       @media (min-width: 820px) and (max-width: 1279px) {
+            font-size: 72 / 16 * 1rem;
+       }
+
+       @media (min-width: 1280px) {
+            font-size: 102 / 16 * 1rem;
+            line-height: 122 / 102;
+       }
     }
 }
+
+// $medium-size: 900px;
+// $small-size: 640px;
+// $mini-size: 442px;
+
+// .header {
+//     display: flex;
+//     flex-flow: column;
+//     align-items: center;
+//     width: 680 / 16 * 1rem;
+//     margin: 0 auto;
+//     padding-top: 65 / 16 * 1rem;
+//     padding-bottom: 50 / 16 * 1rem;
+
+//     @media (max-width: $medium-size) {
+//         width: 540 / 16 * 1rem;
+//         padding-top: 50 / 16 * 1rem;
+//         padding-bottom: 40 / 16 * 1rem;
+//     }
+
+//     @media (max-width: $small-size) {
+//         width: 370 / 16 * 1rem;
+//         padding-top: 28 / 16 * 1rem;
+//         padding-bottom: 1rem;
+//     }
+
+//     @media (max-width: $mini-size) {
+//         width: 220 / 16 * 1rem;
+//         padding-top: 20 / 16 * 1rem;
+//         padding-bottom: 1rem;
+//     }
+
+//     &__text {
+//         @extend %text-style;  
+
+//         &:first-child {
+//             align-self: flex-start;
+//         }
+
+//         &:last-child {
+//             align-self: flex-end;
+//         }
+
+//         @media (max-width: $medium-size) {
+//             font-size: 80 / 16 * 1rem;
+//         }
+
+//         @media (max-width: $small-size) {
+//             font-size: 55 / 16 * 1rem;
+//         }
+
+//         @media (max-width: $mini-size) {
+//             font-size: 32 / 16 * 1rem;
+//         }
+//     }
+// }

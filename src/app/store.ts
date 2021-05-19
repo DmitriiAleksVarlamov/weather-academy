@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import appSliceReducer from './appSlice'
+import sliderSliceReducer from './sliderSlice'
+import pastTimeSliceReducer from './pastTimeSlice'
 
 export const store = configureStore({
   reducer: {
-    appSlice: appSliceReducer
+    sliderSlice: sliderSliceReducer,
+    pastTimeSlice: pastTimeSliceReducer
   }
 })
 

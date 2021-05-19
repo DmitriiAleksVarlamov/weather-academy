@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState, AppThunk } from './store'
-// import Http from './http'
+// import { SliderResponse, SliderState } from './types'
 import { axiosInstance } from './http'
 
-interface Weather {
+export interface Weather {
   id: number
   main: string
   description: string
@@ -19,24 +19,23 @@ export interface Temp {
   night: number
 }
 
-interface Obj {
+export interface Obj {
   dt: number
   temp: Temp
   weather: Weather[]
 }
 
-interface ServerResponse {
-  lat: number
+export interface ServerResponse {
   daily: Obj[];
 }
 
-interface AppState {
+export interface SliderState {
   daily: Obj[];
   status: 'idle' | 'loading' | 'failed';
 }
 
-export const getSevenDayForecast = createAsyncThunk(
-  'app/getSevenDayForecast',
+export const getSevenDaysForecast = createAsyncThunk(
+  'slider/getSevenDaysForecast',
   (_, { dispatch, getState }) => {
     axiosInstance.get<ServerResponse>('onecall?lat=33.44&lon=-94.04')
       .then(response => {
@@ -44,22 +43,34 @@ export const getSevenDayForecast = createAsyncThunk(
       })
   })
 
-const initialState: AppState = {
+const initialState: SliderState = {
   daily: [],
   status: 'idle'
 }
 
-const appSlice = createSlice({
-  name: 'app',
+const sliderSlice = createSlice({
+  name: 'slider',
   initialState,
   reducers: {
     dailyForecast: (state, action) => {
       state.daily = action.payload.daily
       // console.log(action.payload.daily)
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getSevenDaysForecast.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(getSevenDaysForecast.fulfilled, (state) => {
+        state.status = 'idle'
+      })
+      .addCase(getSevenDaysForecast.rejected, (state) => {
+        state.status = 'failed'
+      })
   }
 })
 
-export const { dailyForecast } = appSlice.actions
+export const { dailyForecast } = sliderSlice.actions
 
-export default appSlice.reducer
+export default sliderSlice.reducer

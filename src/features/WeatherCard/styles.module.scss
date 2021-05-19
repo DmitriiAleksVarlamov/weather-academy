@@ -1,32 +1,26 @@
-.card {
-    min-height: 524 / 16 * 1rem;
-    width: 660 / 16 * 1rem;
-    border-radius: 8px;
+.container {
+    width: 300 / 16 * 1rem;
     background: #FFFFFF;
-    padding: 50 / 16 * 1rem 58 / 16 * 1rem;
     box-shadow: 0px 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
+    border-radius: 8px;
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+    padding-bottom: 60 / 16 * 1rem;
 
-    @media (max-width: 1440px) {
-        width: 600 / 16 * 1rem;
+    @media (min-width: 442px) and (max-width: 619px) {
+        width: 400 / 16 * 1rem;
     }
 
-    @media (max-width: 1280px) {
+    @media (min-width: 620px) and (max-width: 819px) {
+        width: 540 / 16 * 1rem;
+    }
+
+    @media (min-width: 820px) {
         width: 660 / 16 * 1rem;
-    }
-
-    @media (max-width: 740px) {
-        width: 100%;
-    }
-
-    @media (max-width: 540px) {
-        margin: 0 auto;
-        width: 95%;
-        padding: 2.5rem 2rem;
-    }
-
-    @media (max-width: 442px) {
-        width: 100%;
-        padding: 2rem 1.5rem;
+        padding-top: 50 / 16 * 1rem;
+        padding-left: 58 / 16 * 1rem;
+        padding-right: 58 / 16 * 1rem;
+        padding-bottom: 70 / 16 * 1rem;
     }
 
     &__title {
@@ -36,53 +30,8 @@
         font-size: 2rem;
         line-height: 1;
         color: #2C2D76;
-        margin-bottom: 2rem;
-    }
-
-    &__wrapper {
-        display: flex;
-        justify-content: space-between;
-        flex-flow: wrap;
-
-        @media (max-width: 740px) {
-            flex-flow: column;
-            height: 112 / 16 * 1rem;
-        }
-    }
-
-    &__city {
-        min-width: 47%;
-        height: 48px;
-        left: 99px;
-        top: 451px;
-        background: rgba(128, 131, 164, 0.06);
-        border: 2px solid rgba(128, 131, 164, 0.2);
-        box-sizing: border-box;
-        border-radius: 8px;
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        color: #8083A4;
-    }
-
-    &__date {
-        min-width: 47%;
-        height: 48px;
-        left: 1085px;
-        top: 451px;
-        background: rgba(128, 131, 164, 0.06);
-        border: 2px solid rgba(128, 131, 164, 0.2);
-        box-sizing: border-box;
-        border-radius: 8px;
-        font-family: 'Ubuntu';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #8083A4;
+        padding-bottom: 1.5rem;
     }
 }
-
 
 
