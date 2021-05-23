@@ -1,4 +1,10 @@
 # Примечания
+### Не успел сделать: 
+  Стилизовать изменение указателя Select Active. 
+№№№ Есть сомнения: 
+  Обработка ошибок в Интерсепторах экземпляра axios. Перепробовал несколько решений, но пришлось отказаться от них. Прошу подсказать оптимальное решеие. Перенес обработку ошибок в Асинхронный экшн и createSlice. 
+### Почему сделал именно так: 
+  Не вынес @media в отдельный файл и не создавал переменные по причине небольшого проекта и нецелесообразности в данном случае. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
