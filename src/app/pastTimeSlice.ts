@@ -1,28 +1,43 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState, AppThunk } from './store'
 import { axiosInstance } from './http'
 
-interface CurForecast {
+interface ICurForecast {
   dt: number;
   temp: number;
   weather: [{icon: string}];
 }
 
-interface PastTimeState {
-  currentForecast: CurForecast | null;
+interface IResponseData {
+  current: ICurForecast;
+  hourly: ICurForecast[];
+}
+
+interface IPastTimeState {
+  currentForecast: ICurForecast | null;
   status: 'idle' | 'loading' | 'failed';
+}
+
+interface IPayload {
+    date: number;
+    lat: number;
+    lon: number;
 }
 
 export const getHistoryForecast = createAsyncThunk(
   'pastTime/getHistoryForecast',
-  (_, { dispatch, getState }) => {
-    axiosInstance.get<CurForecast>('onecall/timemachine?lat=60.99&lon=30.9&dt=1620999927')
+  (requestData: IPayload, { dispatch }) => {
+    const { date, lon, lat } = requestData
+    axiosInstance.get<IResponseData>(`onecall/timemachine?lat=${lat}&lon=${lon}&dt=${date}`)
       .then(response => {
         dispatch(historyForecast(response))
+        dispatch(fullfilledRequest())
+      })
+      .catch(() => {
+        dispatch(rejectedRequest())
       })
   })
 
-const initialState: PastTimeState = {
+const initialState: IPastTimeState = {
   currentForecast: null,
   status: 'idle'
 }
@@ -32,7 +47,17 @@ const pastTimeSlice = createSlice({
   initialState,
   reducers: {
     historyForecast: (state, action) => {
-      state.currentForecast = action.payload.current
+      const { hourly } = action.payload
+      // Темпратура в полдень. Выбрал один промежуток времени
+      // Можно расчитать среднюю. Но лучше сменить интерфейс
+      // и сделать две вкладки с возможностью выбора кокретного времени
+      state.currentForecast = hourly[12]
+    },
+    fullfilledRequest: (state) => {
+      state.status = 'idle'
+    },
+    rejectedRequest: (state) => {
+      state.status = 'failed'
     }
   },
   extraReducers: (builder) => {
@@ -40,15 +65,13 @@ const pastTimeSlice = createSlice({
       .addCase(getHistoryForecast.pending, (state) => {
         state.status = 'loading'
       })
-      .addCase(getHistoryForecast.fulfilled, (state) => {
-        state.status = 'idle'
-      })
-      .addCase(getHistoryForecast.rejected, (state) => {
-        state.status = 'failed'
-      })
   }
 })
 
 export default pastTimeSlice.reducer
 
-export const { historyForecast } = pastTimeSlice.actions
+export const {
+  historyForecast,
+  fullfilledRequest,
+  rejectedRequest
+} = pastTimeSlice.actions

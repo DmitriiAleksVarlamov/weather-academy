@@ -3,17 +3,20 @@ import classes from './styles.module.scss'
 import { useAppSelector } from '../../app/hooks'
 import { format } from 'date-fns'
 import Spinner from '../Spinner'
+import fromUnixTime from 'date-fns/fromUnixTime'
+import EmptyCard from '../EmptyCard'
+import ErrorMessage from '../ErrorMessage'
 
-interface Props { }
-
-const PastTimeCard: FC<Props> = () => {
+const PastTimeCard: FC = () => {
   const { currentForecast, status } = useAppSelector(store => store.pastTimeSlice)
-
-  if (!currentForecast || status === 'loading') return <Spinner />
+  // Обработка загрузкиб ошибки и пустой карточки
+  if (status === 'failed') return <ErrorMessage />
+  if (status === 'loading') return <Spinner />
+  if (!currentForecast) return <EmptyCard />
 
   const { dt, temp, weather } = currentForecast
   const { icon } = weather[0]
-  const formatedDate = format(new Date(dt * 1000), 'dd MMMM yyyy')
+  const formatedDate = format(new Date(fromUnixTime(dt)), 'dd MMMM yyyy')
   const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`
   return (
     <section className={classes.container}>

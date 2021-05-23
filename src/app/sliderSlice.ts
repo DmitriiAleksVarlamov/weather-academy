@@ -3,14 +3,14 @@ import { RootState, AppThunk } from './store'
 // import { SliderResponse, SliderState } from './types'
 import { axiosInstance } from './http'
 
-export interface Weather {
+export interface IWeather {
   id: number
   main: string
   description: string
   icon: string
 }
 
-export interface Temp {
+export interface ITemp {
   day: number
   eve: number
   max: number
@@ -19,31 +19,39 @@ export interface Temp {
   night: number
 }
 
-export interface Obj {
+export interface IForecastObj {
   dt: number
-  temp: Temp
-  weather: Weather[]
+  temp: ITemp
+  weather: IWeather[]
 }
 
-export interface ServerResponse {
-  daily: Obj[];
+export interface IServerResponse {
+  daily: IForecastObj[];
 }
 
-export interface SliderState {
-  daily: Obj[];
+export interface ISliderState {
+  daily: IForecastObj[];
   status: 'idle' | 'loading' | 'failed';
+}
+
+interface ICoordinates {
+  lat: number;
+  lon: number;
 }
 
 export const getSevenDaysForecast = createAsyncThunk(
   'slider/getSevenDaysForecast',
-  (_, { dispatch, getState }) => {
-    axiosInstance.get<ServerResponse>('onecall?lat=33.44&lon=-94.04')
+  (coordinates: ICoordinates, { dispatch }) => {
+    const { lat, lon } = coordinates
+    axiosInstance.get<IServerResponse>(`onecall?lat=${lat}&lon=${lon}`)
       .then(response => {
         dispatch(dailyForecast(response))
+        dispatch(fullFilledRequest())
       })
+      .catch(() => dispatch(rejectedRequest()))
   })
 
-const initialState: SliderState = {
+const initialState: ISliderState = {
   daily: [],
   status: 'idle'
 }
@@ -54,7 +62,12 @@ const sliderSlice = createSlice({
   reducers: {
     dailyForecast: (state, action) => {
       state.daily = action.payload.daily
-      // console.log(action.payload.daily)
+    },
+    fullFilledRequest: (state) => {
+      state.status = 'idle'
+    },
+    rejectedRequest: (state) => {
+      state.status = 'failed'
     }
   },
   extraReducers: (builder) => {
@@ -62,15 +75,9 @@ const sliderSlice = createSlice({
       .addCase(getSevenDaysForecast.pending, (state) => {
         state.status = 'loading'
       })
-      .addCase(getSevenDaysForecast.fulfilled, (state) => {
-        state.status = 'idle'
-      })
-      .addCase(getSevenDaysForecast.rejected, (state) => {
-        state.status = 'failed'
-      })
   }
 })
 
-export const { dailyForecast } = sliderSlice.actions
+export const { dailyForecast, fullFilledRequest, rejectedRequest } = sliderSlice.actions
 
 export default sliderSlice.reducer

@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 
 export const rootBackendUrl = process.env.REACT_APP_ROOT_BACKEND_URL
 const appId = process.env.REACT_APP_API_KEY
@@ -24,6 +24,6 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (axiosResponse) => axiosResponse.data,
   (error) => {
-    console.log(error.response)
+    console.log(error)
   }
 )

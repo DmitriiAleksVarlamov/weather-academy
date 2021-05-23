@@ -1,0 +1,7 @@
+.form {
+  padding-bottom: 30 / 16 * 1rem;
+
+  @media (min-width: 1440px) {
+      padding-bottom: 54 / 16 * 1rem;
+  }
+}

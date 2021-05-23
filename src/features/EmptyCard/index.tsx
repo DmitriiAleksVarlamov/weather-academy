@@ -2,9 +2,7 @@ import React, { FC } from 'react'
 import classes from './styles.module.scss'
 import image from '../../assests/Placeholder/Academy-Weather-bg160.svg'
 
-interface Props { }
-
-const EmptyCard: FC<Props> = () => {
+const EmptyCard: FC = () => {
   return (
     <div className={classes['empty-card']}>
       <img

@@ -4,9 +4,7 @@ import HeaderText from './HeaderText'
 
 const titles: Array<string> = ['Weather', 'forecast']
 
-interface Props { }
-
-const AppHeader: FC<Props> = () => {
+const AppHeader: FC = () => {
   return (
         <header className={classes.header}>
             {

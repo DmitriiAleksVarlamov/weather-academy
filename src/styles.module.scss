@@ -33,3 +33,23 @@
         margin-top: 199 / 14 * 1em;
     }
 }
+
+.content {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 10 / 16 * 1rem;
+
+    @media (min-width: 442px) and (max-width: 819px){
+        grid-gap: 20 / 16 * 1rem;
+    }
+
+    @media (min-width: 820px) and (max-width: 1439px){
+        grid-gap: 34 / 16 * 1rem;
+    }
+
+    @media (min-width: 1440px) {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 34 / 16 * 1rem;
+    }
+}

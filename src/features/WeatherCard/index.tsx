@@ -3,12 +3,12 @@ import classes from './styles.module.scss'
 
 const cities: Array<string> = ['Самара', 'Тольятти', 'Саратов', 'Казань', 'Краснодар']
 
-interface Props {
+interface IProps {
   title: string;
   children?: React.ReactChild | React.ReactNode;
 }
 
-const WeatherCard: FC<Props> = ({ title, children }) => {
+const WeatherCard: FC<IProps> = ({ title, children }) => {
   return (
     <article className={classes.container}>
       <h2 className={classes.container__title}>{title}</h2>
