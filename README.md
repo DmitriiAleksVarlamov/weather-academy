@@ -1,5 +1,6 @@
-## [Ссылка на работающее приложение Weather-academy](https://pages-gules.vercel.app/)
-
+## [Ссылка на GH-PAGES](https://robinbobin-big-belled-ban.github.io/weather-academy/)
+Работает стабильно, но иногда с GHP случались неприятные моменты. Поэтому добавляю ссылку на VERCEL
+## [Ссылка на работающее приложение Weather-academy VERCEL](https://pages-gules.vercel.app/)
 
 # Примечания
 ### Не успел сделать: 
