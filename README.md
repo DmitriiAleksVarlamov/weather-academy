@@ -1,3 +1,6 @@
+(Ссылка на работающее приложение Weather-academy)[https://pages-gules.vercel.app/]
+
+
 # Примечания
 ### Не успел сделать: 
   Стилизовать изменение указателя Select Active. 
